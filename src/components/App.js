@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter categories={CATEGORIES} onCatChange={handleCatChange} />
+      <CategoryFilter categories={CATEGORIES} onCatChange={handleCatChange} selectedCategory={catSelect} />
       <NewTaskForm />
       <TaskList tasks={filteredTasks} onDelete={handleDelete} />
     </div>
