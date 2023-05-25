@@ -19,6 +19,10 @@ function App() {
     setCatSelect(cat)
   }
   
+  function handleFormSubmit(newTask) {
+    setCurrentTasks([...currentTasks, newTask])
+  }
+
   let filteredTasks = currentTasks.filter(task=>(
     catSelect === "All" ? true : task.category === catSelect
   ))
@@ -27,7 +31,7 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} onCatChange={handleCatChange} selectedCategory={catSelect} />
-      <NewTaskForm />
+      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={handleFormSubmit} />
       <TaskList tasks={filteredTasks} onDelete={handleDelete} />
     </div>
   );
